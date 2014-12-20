@@ -44,10 +44,7 @@ module.exports = function (req, res, next){
 				}
 				
 				req.session.user = aliveUser;
-				res.send({
-					session: req.session,
-					status: 'session'
-				});
+				res.redirect('/fans/list');
 			});
 			return;
 		},
@@ -62,9 +59,6 @@ module.exports = function (req, res, next){
 			return next(err);
 		}
 		req.session.user = newUser;
-		res.send({
-			session: req.session,
-			status: 'nweUser'
-		});
+		res.redirect('/fans/list');
 	});
 };

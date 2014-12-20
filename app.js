@@ -34,7 +34,9 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/test', controllers.test);
+app.use('/auth', controllers.auth);
 app.use('/users', controllers.users);
+app.use('/fans', controllers.fans);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
