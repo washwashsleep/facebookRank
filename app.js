@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('cookie-session');
 
 var controllers = require('./controllers');
 
@@ -19,8 +20,17 @@ app.use(express.static(path.join(__dirname, '/public')));
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(cookieParser());
+app.use(session({
+    key: 'sessionId',
+    secret: 'session_cookie_secret+sdjfiawe958723',
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 60
+    }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/test', controllers.test);
