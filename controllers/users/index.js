@@ -2,20 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var test = require('./test'); 
-var create = require('./create'); 
-var fansListPage = require('./fansListPage'); 
-// var homePage = require('./homePage'); 
+var activeCreate = require('./activeCreate'); 
 	
 router.route('/create')
-	.post(create);
+	.post(activeCreate);
 	
-router.route('/fansList')
-	.get(fansListPage);
-
-// router.route('/test')
-// 	.get(test);
-	
-// router.route('/homePage')
-// 	.get(homePage);
-
 module.exports = router;

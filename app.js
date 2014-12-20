@@ -33,6 +33,7 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', controllers.root);
 app.use('/test', controllers.test);
 app.use('/auth', controllers.auth);
 app.use('/users', controllers.users);
