@@ -1,1 +1,24 @@
-fansCreate.html
+{% extends "base.html" %}
+{% block title %}建立粉絲專頁列表{% endblock %}
+{% block headCSS %}
+  <link rel="stylesheet" href="/css/todos.css">
+{% endblock %}
+{% block contents %}
+  <div id="todoapp" style="margin-top:150px;">
+    <header>
+      <h1>jQuery Todo Plugin Demo</h1>
+      <input id="new-todo" type="text" placeholder="What needs to be done?">
+    </header>
+    <section id='main'>
+      <ul id='todo-list'></ul>
+    </section>
+    <footer> 
+      <a id="clear-completed">Clear completed</a>
+      <div id='todo-count'></div>
+    </footer>
+  </div>
+{% endblock %}
+
+{% block headJS %}
+  <script src="/js/todos.js"></script>
+{% endblock %}
