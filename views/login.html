@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block title %}登入頁面{% endblock %}
 {% block contents %}
-  <div id="login">
+<!--   <div id="login">
       <div id="fb-root"></div>
       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
       </fb:login-button>
-  </div>
-  <a class="btn" href="#" id="logout">logout</a>
+  </div> -->
+  <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="true" data-auto-logout-link="true"></div>
+  <!-- <a class="btn" href="#" id="logout">logout</a> -->
   <div id="status"></div>
-  <div id="tee">
+ <!--  <div id="tee">
     <img class="img-thumbnail">
-  </div>
+  </div> -->
 {% endblock %}
 
 {% block headJS %}
@@ -20,7 +21,7 @@
     var redirectUri = 'https://' + +'';
     var picture;
 
-    $('#logout').hide();
+    // $('#logout').hide();
     function statusChangeCallback(response) {
       // console.log('statusChangeCallback');
       // console.log(response);
@@ -63,21 +64,21 @@
       js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=406104836231894&version=v2.0";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    
+
     function testAPI() {
       console.log('Welcome!  Fetching your information.... ');
       FB.api('/me', function(response) {
         $.post("/users/create", response, function(data) {
           console.log(data, '哈哈');
-          $('#logout').show();
-          $('#login').hide();
+          // $('#logout').show();
+          // $('#login').hide();
         }).fail(function() {
           alert("error");
         });
         console.log('Successful login for: ' + response.name);
         document.getElementById('status').innerHTML = '感謝您的登入, ' + response.name + '!';
       });
-      
+
       $(document).ready(function() {
         $('#tee').find('.img-thumbnail').attr('src', picture);
       });
