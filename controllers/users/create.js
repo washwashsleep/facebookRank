@@ -30,7 +30,7 @@ module.exports = function (req, res, next){
 			
 			options.userId = req.body.id;
 			
-			options.picture = 'http: //graph.facebook.com/' + options.userId + 
+			options.picture = 'http://graph.facebook.com/' + options.userId + 
 			'/picture?width=30&height=30';
 			
 			cb(null, options);
