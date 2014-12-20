@@ -6,15 +6,15 @@
 {% block contents %}
   <div id="todoapp" style="margin-top:150px;">
     <header>
-      <h1>jQuery Todo Plugin Demo</h1>
-      <input id="new-todo" type="text" placeholder="What needs to be done?">
+      <h1>選取要排序的粉絲專頁</h1>
+      <input id="new-todo" type="text" placeholder="請填入粉絲專頁的url. ex:">
+      <a class="btn" id="test">假資料</a>
     </header>
     <section id='main'>
       <ul id='todo-list'></ul>
+      <a class="btn" id="fansCreate">送出結果</a>
     </section>
-    <footer> 
-      <a id="clear-completed">Clear completed</a>
-      <div id='todo-count'></div>
+    <footer>
     </footer>
   </div>
 {% endblock %}

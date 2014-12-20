@@ -3,5 +3,5 @@ module.exports = function (req, res, next){
 		return res.redirect('/auth/login');
 	}
 	// need fansCreate.html
-	res.send('fans list page .html');
+	res.render('fansCreate.html');
 };
