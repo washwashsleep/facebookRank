@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    {% block headCSS %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block contents %}
+    {% endblock %}
+  </body>
+  <script src="/js/jquery-1.11.2.min.js"></script>
+  {% block headJS %}
+  {% endblock %}
+</html>
