@@ -12,7 +12,7 @@ module.exports = function (req, res, next){
 			if(!req.session.user || !req.session.user.userId){
 				return res.redirect('/auth/login');
 			}
-			req.body.fansIds = [138881822836993, 1502894619932654, 190423601015316];
+			// req.body.fansIds = [138881822836993, 1502894619932654, 190423601015316];
 			if(!req.body.fansIds){
 				return cb(new Error('fans create `fansIds` required'));
 			}
