@@ -45,8 +45,8 @@ module.exports = function (req, res, next){
 				
 				req.session.user = aliveUser;
 				res.redirect('/fans/list');
+				return;
 			});
-			return;
 		},
 		
 		function (options, cb){
