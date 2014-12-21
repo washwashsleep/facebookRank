@@ -87,13 +87,67 @@
   <script src="/js/main.js"></script>
   <script src="/js/wow.min.js"></script>
   <script>
-  function foo(){
-    if(('#todoapp').height() > 520){
-      $('#footer').css('position', 'relative')
-    }else{
-      $('#footer').css('position', 'absolute')
+    var clientId = '406104836231894';
+    var clientSecret = 'daf8aa02981bd229463b6434dd65f63f';
+    var redirectUri = 'https://' + +'';
+    var picture;
+
+    $('#logout').hide();
+    function statusChangeCallback(response) {
+      if (response.status === 'connected') {
+        testAPI();
+      } else if (response.status === 'not_authorized') {
+        document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
+      } else {
+        document.getElementById('status').innerHTML = 'Please log ' + 'into Facebook.';
+      }
     }
-  }
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '406104836231894',
+        cookie: true,
+        xfbml: true,
+        version: 'v2.0'
+      });
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    };
+
+    (function (d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=406104836231894&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function testAPI() {
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('/me', function(response) {
+        $.post("/users/create", response, function(data) {
+          $('#logout').show();
+          $('#login').hide();
+        }).fail(function() {
+          alert("error");
+        });
+        // console.log('Successful login for: ' + response.name);
+        // document.getElementById('status').innerHTML = '感謝您的登入, ' + response.name + '!';
+      });
+
+      $(document).ready(function() {
+        $('#tee').find('.img-thumbnail').attr('src', picture);
+      });
+    }
   </script>
   {% block headJS %}
   {% endblock %}
