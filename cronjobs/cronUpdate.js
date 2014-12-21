@@ -25,6 +25,10 @@ module.exports = function (done){
 						// console.log(body);
 						var info = {
 							fanId: fan.fanId,
+							about: JSON.parse(body).about,
+							name: fan.name,
+							link: fan.link,
+							image: fan.image,
 							likes: JSON.parse(body).likes,
 							when: Date.now()
 						};
@@ -39,6 +43,11 @@ module.exports = function (done){
 							if(!aliveInfo){
 								db.fansUpdateInfo.insert({
 									fanId: info.fanId,
+									about: info.about,
+									name: info.name,
+									link: info.link,
+									image: info.image,
+									likes: info.likes,
 									info: [{ likes: info.likes, when: info.when }]
 								}, next);
 								return;
