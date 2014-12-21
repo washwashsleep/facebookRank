@@ -56,6 +56,7 @@ $(document).ready(function() {
           $todoList.html(todos);
           runBind();
           $('#main').show();
+          foo();
         }else{
           alert( "error" );
           $this.val('');

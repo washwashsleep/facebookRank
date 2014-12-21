@@ -2,54 +2,36 @@
 {% block title %}登入頁面{% endblock %}
 {% block headCSS %}
   <link rel="stylesheet" href="/css/isotope.css">
+  <style>
+  .isotope{
+    border:none;
+  }
+  </style>
 {% endblock %}
 {% block contents %}
-{#
-  <div id="filters" class="button-group">
-    <button class="button is-checked" data-filter="*">show all</button>
-    <button class="button" data-filter=".metal">metal</button>
-    <button class="button" data-filter=".transition">transition</button>
-    <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
-    <button class="button" data-filter=":not(.transition)">not transition</button>
-    <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
-    <button class="button" data-filter="numberGreaterThan50">number > 50</button>
-    <button class="button" data-filter="ium">name ends with &ndash;ium</button>
+  <div class="container">
+    <header>
+      <h2>粉絲頁排行</h2>
+    </header>
+    <div id="sorts" class="button-group row">
+      <button class="btn" data-sort-by="name">名稱</button>
+      <button class="btn" data-sort-by="number">按讚數</button>
+      <button class="btn" data-sort-by="up">上升數</button>
+    </div>
+    <div class="isotope row">
+    {% for x in userFansList %}
+      <div class="element-item post-transition metal " data-category="post-transition" style="background:#efefef">
+        <p class="name">{{x.name}}</p>
+        <a href="{{x.link}}">
+          <img src="{{x.image}}" style="display: block;font: bold 25px/100px Georgia, Serif;color: #777;background: #fff;border: 5px solid #fff;
+    height: 100px;width: 100px;margin: 10px auto -65px;-moz-border-radius: 150px;-webkit-border-radius: 150px;border-radius: 100px;-moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;-webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;-moz-box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);-webkit-box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);position:relative;top:60px" />
+        </a>
+        <p class="number">{{x.likes}}</p>
+        <p class="up">{{x.likes}}</p>
+      </div>
+    {% endfor %}
+    </div>
   </div>
-#}
-<h2>粉絲頁排行</h2>
-<div id="sorts" class="button-group">
-  <!-- <button class="button is-checked" data-sort-by="original-order">original order</button> -->
-  <button class="btn" data-sort-by="name">名稱</button>
-  <button class="btn" data-sort-by="number">按讚數</button>
-  <button class="btn" data-sort-by="up">上升數</button>
-</div>
-<div class="isotope">
-{% for x in userFansList %}
-  <div class="element-item post-transition metal " data-category="post-transition" style="background:#efefef">
-    <p class="name">{{x.name}}</p>
-    <a href="{{x.link}}">
-      <img src="{{x.image}}" style="display: block;
-font: bold 25px/100px Georgia, Serif;
-color: #777;
-background: #fff;
-border: 5px solid #fff;
-height: 100px;
-width: 100px;
-margin: 10px auto -65px;
--moz-border-radius: 150px;
--webkit-border-radius: 150px;
-border-radius: 100px;
--moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
--webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;-moz-box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);
--webkit-box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);
-box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);position:relative;top:60px" />
-    </a>
-    <p class="number">{{x.likes}}</p>
-    <p class="up">{{x.likes}}</p>
-  </div>
-{% endfor %}
-</div>
 {% endblock %}
 {% block headJS %}
   <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
@@ -111,6 +93,7 @@ box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 
           $( this ).addClass('is-checked');
         });
       });
+      if($('.isotope').height()>550){foo()}
     });
   </script>
 {% endblock %}
