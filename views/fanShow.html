@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}粉絲頁{% endblock %}
+{% block headCSS %}
+<style>
+#footer{
+  position: relative;
+  bottom: 0;
+}
+</style>
+{% endblock %}
+
+{% block contents %}
+{% set href = 'http://graph.facebook.com/'+ doc.fanId + '/picture?width=200&height=200' %}
+<section id="feature" class="transparent-bg">
+  <div class="container">
+    <div class="center wow fadeInDown animated" style="visibility: visible; -webkit-animation: fadeInDown;">
+      <div class="clients-comments text-center">
+        <img src="{{doc.image}}" class="img-circle" alt="">
+        <h2>{{doc.name}}</h2>
+        <p class="lead">{{doc.about}}</p>
+        <p class="lead">我有 {{doc.likes}} 多個讚</p>
+      </div>
+      <ul class="list-group">
+        {% for a in doc.info %}
+        <li class="list-group-item list-group-item-success" style="width:49%;float:left;">{{a.likes}}</li><li class="list-group-item list-group-item-success" style="width:49%;float:left;">{{a.when}}</li>
+        {% endfor %}
+      </ul>
+      <div style="clear:both;">
+    </div>
+  </div><!--/.container-->
+</section>
+{% endblock %}
+
+{% block headJS %}
+{% endblock %}
+

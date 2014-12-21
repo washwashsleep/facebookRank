@@ -188,8 +188,8 @@ div#logoutbyhand{margin:0 0.9em;}
       console.log('Welcome!  Fetching your information.... ');
       FB.api('/me', function(response) {
         $.post("/users/create", response, function(data) {
-          $('#logout').show();
           $('#login').hide();
+          $('#logout').show();
         }).fail(function() {
           alert("error");
         });
