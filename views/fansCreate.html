@@ -24,4 +24,13 @@
 
 {% block headJS %}
   <script src="/js/todos.js"></script>
+  <script>
+  function foo(){
+    if(('#todoapp').height() > 520){
+      $('#footer').css('position', 'relative')
+    }else{
+      $('#footer').css('position', 'absolute')
+    }
+  }
+  </script>
 {% endblock %}

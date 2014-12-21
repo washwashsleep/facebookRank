@@ -39,6 +39,7 @@
     $( function() {
       // init Isotope
       var $container = $('.isotope').isotope({
+        sortAscending : false,
         itemSelector: '.element-item',
         layoutMode: 'fitRows',
         getSortData: {
@@ -93,7 +94,11 @@
           $( this ).addClass('is-checked');
         });
       });
-      if($('.isotope').height()>550){foo()}
+      if($('.isotope').height()>550){
+        $('#footer').css('position', 'relative')
+      }else{
+        $('#footer').css('position', 'absolute')
+      }
     });
   </script>
 {% endblock %}
