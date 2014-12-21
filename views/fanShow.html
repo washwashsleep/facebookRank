@@ -18,12 +18,13 @@
         <img src="{{doc.image}}" class="img-circle" alt="">
         <h2>{{doc.name}}</h2>
         <p class="lead">{{doc.about}}</p>
-        <p class="lead">我有 {{doc.likes}} 多個讚</p>
+        <p class="lead">我有 <b>{{doc.likes}}</b> 多個讚</p>
       </div>
       <ul class="list-group">
         {% for a in doc.info %}
-        <li class="list-group-item list-group-item-success" style="width:49%;float:left;">{{a.likes}}</li><li class="list-group-item list-group-item-success" style="width:49%;float:left;">{{a.when}}</li>
+        <li class="list-group-item list-group-item-success" style="width:49%;float:left;">{{a.likes}} 人說很讚</li><li class="list-group-item list-group-item-success" style="width:49%;float:left;">{{a.when|date('Y-m-d H時i分s秒')}}</li>
         {% endfor %}
+        <li><a class="btn" href="/fans/list">返回</a></li>
       </ul>
       <div style="clear:both;">
     </div>
