@@ -277,6 +277,7 @@ input.search-form:hover {
 .navbar-nav>li{
   margin-left: 35px;
   padding-bottom: 28px;
+  line-height: 26px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
