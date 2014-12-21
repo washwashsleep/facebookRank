@@ -75,7 +75,7 @@ module.exports = function (req, res, next){
 						var fansInfo = _.pick(JSON.parse(body), 'likes', 'name', 'link');
 						fansInfo.fanId = fanId;
 						fansInfo.image = 'http://graph.facebook.com/' + fanId + 
-						'/picture?width=30&height=30';
+						'/picture?width=200&height=200';
 						
 						db.fans.insert(fansInfo, function (err, newFans){
 							if(err){
