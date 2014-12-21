@@ -17,7 +17,7 @@
   </div>
 #}
 <h2>粉絲頁排行</h2>
-<div id="sorts" class="button-group">  
+<div id="sorts" class="button-group">
   <!-- <button class="button is-checked" data-sort-by="original-order">original order</button> -->
   <button class="btn" data-sort-by="name">名稱</button>
   <button class="btn" data-sort-by="number">按讚數</button>
@@ -25,10 +25,25 @@
 </div>
 <div class="isotope">
 {% for x in userFansList %}
-  <div class="element-item post-transition metal " data-category="post-transition">
+  <div class="element-item post-transition metal " data-category="post-transition" style="background:#efefef">
     <p class="name">{{x.name}}</p>
     <a href="{{x.link}}">
-      <img src="{{x.image}}" style="width:200px;height:200px;" />
+      <img src="{{x.image}}" style="display: block;
+font: bold 25px/100px Georgia, Serif;
+color: #777;
+background: #fff;
+border: 5px solid #fff;
+height: 100px;
+width: 100px;
+margin: 10px auto -65px;
+-moz-border-radius: 150px;
+-webkit-border-radius: 150px;
+border-radius: 100px;
+-moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+-webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;-moz-box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);
+box-shadow: 13px 0 10px -10px rgba(0, 0, 0, .15), -13px 0 10px -10px rgba(0, 0, 0, .15);position:relative;top:60px" />
     </a>
     <p class="number">{{x.likes}}</p>
     <p class="up">{{x.likes}}</p>
@@ -87,7 +102,7 @@
         var sortByValue = $(this).attr('data-sort-by');
         $container.isotope({ sortBy: sortByValue });
       });
-      
+
       // change is-checked class on buttons
       $('.button-group').each( function( i, buttonGroup ) {
         var $buttonGroup = $( buttonGroup );
