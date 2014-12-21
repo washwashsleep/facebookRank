@@ -6,20 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="stylesheet" href="/css/bootstrap-responsive.min.css"> -->
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/animate.min.css" rel="stylesheet">
     <link href="/css/prettyPhoto.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
+    <link href="/css/csshake.min.css" rel="stylesheet">
     <style>
     #footer{
       width:100%;
       position:absolute;
       bottom:0;
       left:0;
+    }
+    #fb-li{
+      padding-top: 6px;
     }
     </style>
     {% block headCSS %}
@@ -48,7 +50,10 @@
                         <li><a href="services.html">粉絲排行榜</a></li>
 
 
-                        <li><a href="contact-us.html">聯絡我們</a></li>
+                        <li id="fb-li">
+                          <fb:login-button id="login" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                          <div id="logout" class="fb-login-button" data-auto-logout-link="true"></div>
+                        </li>
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -75,6 +80,7 @@
             </div>
         </div>
     </footer><!--/#footer-->
+    <div id="fb-root"></div>
   </body>
   <script src="/js/jquery-1.11.2.min.js"></script>
   <script src="/js/jquery.js"></script>
