@@ -16,21 +16,32 @@
     <button class="button" data-filter="ium">name ends with &ndash;ium</button>
   </div>
 #}
-<h2>Sort</h2>
+<h2>粉絲頁排行</h2>
 <div id="sorts" class="button-group">  <button class="button is-checked" data-sort-by="original-order">original order</button>
-  <button class="button" data-sort-by="name">name</button>
-  <button class="button" data-sort-by="symbol">symbol</button>
-  <button class="button" data-sort-by="number">number</button>
-  <button class="button" data-sort-by="weight">weight</button>
-  <button class="button" data-sort-by="category">category</button>
+  <button class="btn" data-sort-by="name">名稱</button>
+  <button class="btn" data-sort-by="number">按讚數</button>
+  <button class="btn" data-sort-by="up">上升數</button>
+  {#<button class="btn" data-sort-by="category">類別</button>#}
 </div>
-
 <div class="isotope">
+{% for x in userFansList %}
+  <div class="element-item post-transition metal " data-category="post-transition">
+    <p class="name">{{x.name}}</p>
+    <a href="{{x.link}}">
+      <img src="{{x.image}}" style="width:200px;height:200px;" />
+    </a>
+    <p class="number">{{x.likes}}</p>
+    <p class="up">{{x.likes}}</p>
+    <!-- <p class="category">200.59</p> -->
+  </div>
+{% endfor %}
+</div>
+<!-- <div class="isotope">
   <div class="element-item transition metal " data-category="transition">
     <h3 class="name">Mercury</h3>
-    <p class="symbol">Hg</p>
-    <p class="number">80</p>
-    <p class="weight">200.59</p>
+    <p class="likes">Hg</p>
+    <p class="up">80</p>
+    <p class="category">200.59</p>
   </div>
   <div class="element-item metalloid " data-category="metalloid">
     <h3 class="name">Tellurium</h3>
@@ -134,7 +145,7 @@
     <p class="number">94</p>
     <p class="weight">(244)</p>
   </div>
-</div>
+</div> -->
 {% endblock %}
 {% block headJS %}
   <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
@@ -162,6 +173,10 @@
         numberGreaterThan50: function() {
           var number = $(this).find('.number').text();
           return parseInt( number, 10 ) > 50;
+        },
+        numberGreaterThan51: function() {
+          var number1 = $(this).find('.up').text();
+          return parseInt( number1, 10 ) > 50;
         },
         // show if name ends with -ium
         ium: function() {
