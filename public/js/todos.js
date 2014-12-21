@@ -67,7 +67,9 @@ $(document).ready(function() {
     }
   });
   $('#fansCreate').on('click', function(){
-    $.post('/fans/activeCreate', {fansIds:IdsList})
+    $.post('/fans/activeCreate', {fansIds:IdsList}, function(data){
+      window.location.href = '/fans/list'
+    });
   });
   $('#test').on('click', function(){
     $.post('/fans/activeCreate', {fansIds:[138881822836993, 1502894619932654, 190423601015316]})

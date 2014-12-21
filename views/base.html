@@ -42,17 +42,14 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="../img/logo.png" alt="logo"></a>
                 </div>
-
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">首頁</a></li>
-                        <li><a href="about-us.html">關於我們</a></li>
-                        <li><a href="services.html">粉絲排行榜</a></li>
-
-
+                        <li><a href="/">首頁</a></li>
+                        <li><a href="/fans/create">選取粉絲頁</a></li>
+                        <li><a href="/fans/list">粉絲排行榜</a></li>
                         <li id="fb-li">
-                          <fb:login-button id="login" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-                          <div id="logout" class="fb-login-button" data-auto-logout-link="true"></div>
+                          <fb:login-button id="login" scope="public_profile,email" onlogin="checkLoginState();" style="position: absolute;"></fb:login-button>
+                          <div id="logout" class="fb-login-button" style="position: absolute;" data-auto-logout-link="true"></div>
                         </li>
                     </ul>
                 </div>
@@ -67,15 +64,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                    &copy; 2014 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
                 </div>
                 <div class="col-sm-6">
-                    <ul class="pull-right">
+                    <!-- <ul class="pull-right">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Faq</a></li>
                         <li><a href="#">Contact Us</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
