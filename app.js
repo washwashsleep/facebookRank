@@ -1,12 +1,12 @@
-var express = require('express')
-, path = require('path')
-, favicon = require('serve-favicon')
-, logger = require('morgan')
-, cookieParser = require('cookie-parser')
-, bodyParser = require('body-parser')
-, session = require('cookie-session')
-, controllers = require('./controllers')
-, app = express();
+var express = require('express'),
+  path = require('path'),
+  favicon = require('serve-favicon'),
+  logger = require('morgan'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  session = require('cookie-session'),
+  controllers = require('./controllers'),
+  app = express();
 
 // view engine setup
 app.engine('html', require('swig').renderFile);
@@ -22,7 +22,7 @@ app.use(session({
   key: 'sessionId',
   secret: 'session_cookie_secret+sdjfiawe958723',
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 60
+    maxAge: 1000 * 60
   }
 }));
 app.use(express.static(path.join(__dirname, 'public')));
